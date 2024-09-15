@@ -1,3 +1,50 @@
-{
-   "kata_list": ["developer", "python", "Renz", "Dana", "Athar", "Fia", "Free", "bantal", "Kasur", "Televisi", "Netflix", "YouTube"]
-}
+[
+    {
+        "clue": "Pekerjaan di bidang teknologi",
+        "kata": "developer"
+    },
+    {
+        "clue": "Bahasa pemrograman",
+        "kata": "python"
+    },
+    {
+        "clue": "Nama seseorang",
+        "kata": "Renz"
+    },
+    {
+        "clue": "Nama seseorang",
+        "kata": "Dana"
+    },
+    {
+        "clue": "Nama seseorang",
+        "kata": "Athar"
+    },
+    {
+        "clue": "Nama seseorang",
+        "kata": "Fia"
+    },
+    {
+        "clue": "Gratis",
+        "kata": "Free"
+    },
+    {
+        "clue": "Tempat tidur",
+        "kata": "bantal"
+    },
+    {
+        "clue": "Tempat tidur",
+        "kata": "Kasur"
+    },
+    {
+        "clue": "Alat elektronik",
+        "kata": "Televisi"
+    },
+    {
+        "clue": "Platform streaming video",
+        "kata": "Netflix"
+    },
+    {
+        "clue": "Platform video",
+        "kata": "YouTube"
+    }
+]
