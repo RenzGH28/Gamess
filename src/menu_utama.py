@@ -3,6 +3,10 @@ from colorama import Fore, Style, init
 import sys
 import time
 import pyfiglet
+import requests
+
+# URL file menu_game di GitHub
+MENU_GAME_URL = 'https://raw.githubusercontent.com/RenzGH28/Gamess/main/game/menu_game.py'
 
 def slowprint(text, delay=0.1):  # Fungsi menerima dua argumen: text dan delay
     for char in text:
@@ -40,7 +44,12 @@ def menu_utama():
         menu_utama()
 
 def menu_game():
-    os.system('python ./game/menu_game.py')
+    try:
+        response = requests.get(MENU_GAME_URL)
+        response.raise_for_status()  # Memastikan tidak ada error pada response
+        exec(response.text)  # Jalankan kode Python dari URL
+    except requests.exceptions.RequestException as e:
+        print(f"Gagal mengambil atau menjalankan file dari URL: {e}")
 
 def kembalisblm():
     file_path = '/storage/emulated/0/Terminal Game/login.py'
@@ -51,4 +60,4 @@ def menu_spam():
     print(Fore.RED + "Mohon Maaf Menu Ini Masih Dalam Tahap Pengembangan, Terimakasih" + Style.RESET_ALL)
     
 if __name__ == '__main__':
-    menu_utama()  
+    menu_utama()
