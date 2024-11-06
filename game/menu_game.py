@@ -3,6 +3,11 @@ from colorama import Fore, Style, init
 import sys
 import time
 import pyfiglet
+import requests
+
+# URL file game di GitHub
+TEBAK_ANGKA_URL = 'https://raw.githubusercontent.com/RenzGH28/Gamess/main/game/tebak%20angka.py'
+TEBAK_KATA_URL = 'https://raw.githubusercontent.com/RenzGH28/Gamess/main/game/tebak%20kata.py'
 
 def slowprint(text, delay=0.1):  # Fungsi menerima dua argumen: text dan delay
     for char in text:
@@ -28,9 +33,9 @@ def menu_utama():
     pilihan = input("Masukkan pilihan Anda: ")
 
     if pilihan == '1':
-        tebak_kata()
+        run_from_url(TEBAK_KATA_URL)
     elif pilihan == '2':
-        tebak_angka()
+        run_from_url(TEBAK_ANGKA_URL)
     elif pilihan == '3':
         kembalisblm()
     elif pilihan == '4':
@@ -39,16 +44,18 @@ def menu_utama():
         print("Pilihan tidak valid, coba lagi.")
         menu_utama()
 
-def tebak_kata():
-    os.system('python "./game/tebak kata.py" ')
-    
+def run_from_url(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Periksa jika ada error pada respons
+        exec(response.text)  # Jalankan kode dari URL sebagai Python
+    except requests.exceptions.RequestException as e:
+        print(f"Gagal mengambil atau menjalankan file dari URL: {e}")
+
 def kembalisblm():
     file_path = '/storage/emulated/0/Terminal Game/src/menu_utama.py'
     print(f"Running script: {file_path}")
     os.system(f'python "{file_path}"')
 
-def tebakangka():
-    print('python "./game/tebak angka.py" ')
-    
 if __name__ == '__main__':
-    menu_utama()  
+    menu_utama()
